@@ -1,3 +1,12 @@
+// variables
+@mixin flex($width, $height, $align, $justify) {
+  display: flex;
+  height: ($height);
+  width: ($width);
+  align-items: ($align);
+  justify-content: ($justify);
+  margin: auto;
+}
 // Global Control
 * {
   margin: 0;
@@ -12,7 +21,7 @@ body {
   background-color: #000;
 }
 a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -20,11 +29,11 @@ a {
 header {
   position: sticky;
   top: 0;
-  background-color: white;
+  background-color: black;
   z-index: 10000;
   box-shadow: 2px 2px 10px rgb(85, 85, 85);
 }
-nav {
+#desktop {
   width: 90%;
   display: flex;
   justify-content: space-between;
@@ -33,7 +42,7 @@ nav {
   height: 12vh;
   z-index: 10000;
   margin: auto;
-  background-color: white;
+  background-color: black;
   .logo {
     position: relative;
     font-weight: bold;
@@ -53,14 +62,75 @@ nav {
     content: "";
     width: 0;
     height: 2px;
-    background-color: black;
+    background-color: white;
     display: block;
-    margin-top: 5px;
+    margin-top: 2px;
     transition: width 0.3s;
   }
   &:hover::after {
     width: 100%;
     transition: width 0.3s;
+  }
+}
+
+// Mobile - Navigation Menu
+#mobile {
+  display: none;
+}
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .overlay {
+    overflow-y: auto;
+  }
+  .overlay a {
+    font-size: 2rem;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
   }
 }
 
@@ -72,52 +142,216 @@ nav {
   height: 88vh;
   display: flex;
   align-items: center;
-  justify-content: space-around;
   width: 90%;
   margin: auto;
 }
 .text {
+  flex: 0.9;
   h1 {
     color: black;
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
-}
-.sir_cutout {
-  img {
-    width: 460px;
-    position: relative;
-    bottom: 13px;
-    filter: drop-shadow(2px 2px 10px rgb(83, 83, 83));
-    z-index: 0;
+  p {
+    color: #4d4747;
+    font-size: 1.2rem;
+    width: 70%;
+    font-weight: 500;
+    margin-top: 20px;
   }
 }
 
-iframe {
-  width: 853px;
-  height: 480px;
+// Sir Cutout
+.sir_cutout {
+  img {
+    width: 430px;
+    position: relative;
+    top: 7px;
+    filter: drop-shadow(1px 1px 10px rgb(83, 83, 83));
+  }
 }
 
 @media screen and (max-width: 768px) {
-  iframe {
-    width: 100%;
-    height: auto;
-  }
-
-  // Temp
-  .nav-links {
-    display: none;
-  }
-
-  #sec-1 {
-    flex-direction: column;
-    height: auto;
-    padding: 30px 0px;
-  }
-
-  .sir_cutout{
-    margin-top: 20px;
-   img {
-    width: 100%;
+  .sir_cutout {
+    img {
+      width: 100%;
+      position: relative;
+      top: 34px;
+    }
   }
 }
+
+// Section - 2
+.sec-2_wrapper {
+  background: #000;
+}
+#sec-2 {
+  @include flex(90%, 60vh, center, center);
+}
+.text_sec-2 {
+  color: white;
+  text-align: center;
+  h1 {
+    font-weight: bold;
+    font-size: 2.8rem;
+  }
+  p {
+    margin: auto;
+    margin-top: 20px;
+    font-size: 17px;
+    width: 80%;
+    line-height: 1.8rem;
+  }
+}
+
+// Section - 3
+.sec-3_wrapper {
+  background: #fff;
+}
+#sec-3 {
+  @include flex(90%, 80vh, center, space-evenly);
+}
+.text_sec-3 {
+  color: black;
+  width: 70%;
+  h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+  }
+  p {
+    font-size: 17px;
+    color: rgb(39, 39, 39);
+    font-weight: 500;
+    line-height: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 3rem;
+    width: 70%;
+  }
+}
+
+.spl_logo {
+  width: 35%;
+  margin: auto;
+  img {
+    width: 300px;
+  }
+}
+
+.btn {
+  color: black;
+  border: black 2px solid;
+  border-radius: 0;
+  padding: 10px 25px;
+  transition: 0.2s;
+
+  font-weight: bold;
+  &:hover {
+    background: #000;
+    color: #fff;
+    transition: 0.2s;
+  }
+}
+
+// Footer
+.footer_wrapper {
+  background: #000;
+}
+footer {
+  @include flex(90%, 10vh, center, space-between);
+}
+.footer_text {
+  color: #fff;
+  h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    br {
+      display: none;
+    }
+    a {
+      text-decoration: underline;
+      text-underline-position: under;
+      text-underline-offset: 2px;
+    }
+  }
+}
+.footer_link {
+  padding: 10px;
+  transition: 0.3s;
+  &:hover {
+    color: rgb(170, 170, 170);
+    transition: 0.3s;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    height: auto;
+    padding: 2rem 0 2rem 0;
+    flex-direction: column;
+    text-align: center;
+  }
+  .sep {
+    display: none;
+  }
+  .footer_text {
+    h4 {
+      br {
+        display: block;
+      }
+    }
+  }
+  .footer-links {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    line-height: 0.5rem;
+  }
+}
+
+// Responsive
+
+@media screen and (max-width: 768px) {
+  // Navigation Control
+  #desktop {
+    display: none;
+  }
+  #mobile {
+    @include flex(90%, 10vh, center, space-between);
+  }
+
+  // Main - Control
+  // Section Flex
+  #sec-1,
+  #sec-2,
+  #sec-3 {
+    flex-direction: column;
+    height: auto;
+    padding: 30px 0px 30px 0px;
+    text-align: center;
+  }
+
+  // Section - 1{
+  .text {
+    p {
+      width: 100%;
+    }
+  }
+
+  // Section - 2
+  #sec-2 {
+    padding: 3rem 0 3rem 0;
+  }
+
+  // Section - 3
+  .text_sec-3 {
+    width: 100%;
+    p {
+      width: 100%;
+    }
+  }
+  .spl_logo {
+    width: 100%;
+    img {
+      width: 80%;
+    }
+  }
 }

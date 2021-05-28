@@ -15,7 +15,7 @@
     
     <header>
 
-        <nav>
+        <nav id="desktop">
 
         <div class="logo">
             <a href="/">
@@ -26,9 +26,31 @@
         <div class="nav-links">
             <a href="#" class="nav-link">Home</a>
             <a href="#about-us" class="nav-link">About us</a>
-            <a href="/" class="nav-link">SPL</a>
-            <a href="/" class="nav-link">Entertainment</a>
+            <a href="#spl" class="nav-link">SPL</a>
         </div>
+
+        
+        <!-- Responsive -->
+        </nav>
+
+        <nav id="mobile">
+
+            <div class="logo_mobile">
+                <a href="/">
+                    <h1 title="SirCorp" alt="SirCorp">Sir Corporate</h1>
+                </a>
+            </div>
+
+            <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <a href="#" class="mobile-link">Home</a>
+                    <a href="#about-us" class="mobile-link">About us</a>
+                    <a href="#spl" class="mobile-link">SPL</a>
+                </div>
+              </div>
+
+              <span style="font-size:30px;cursor:pointer;color: white;" onclick="openNav()">&#9776;</span>
 
         </nav>
 
@@ -36,18 +58,72 @@
 
     <main>
 
-        <div class="sec-1_wrapper">
-            <section id="sec-1">
-                <div class="text">
-                    <h1>Making world <br> greater again!</h1>
-                </div>
-                <div class="sir_cutout">
-                    <img src="https://res.cloudinary.com/spaceloopx/image/upload/v1622126987/sir_cutout_unwk6p.png" alt="">
-                </div>
-            </section>
-        </div>
+        <!-- Section 1 -->
+        <anchor id="#">
+            <div class="sec-1_wrapper">
+                <section id="sec-1">
+                    <div class="text">
+                        <h1>Making greater world! 😉</h1>
+                        <p>Making world greater again! By Connecting People around Globe, Organizing Sports Entertainment and Entertaining people. Retaining Humanity to happy again!</p>
+                    </div>
+                    <div class="sir_cutout">
+                        <img src="/assets/images/sir_cutout.png" alt="">
+                    </div>
+                </section>
+            </div>
+        </anchor>
 
+        <!-- Section 2 -->
+        <anchor id="about-us">
+            <div class="sec-2_wrapper">
+                <section id="sec-2">
+                    <div class="text_sec-2">
+                        <h1>About Us</h1>
+                        <p>We are SIR! SIR Corporate is a conglomerate company, founded by Sir (R Basanio) on 450B.C.  The company was started to make world and man-kind happier and greater again, by conducting Sports Entertainment, Movie Entertainment and more. The Company aims to touch 99Centillion on Nov, 2021.</p>
+                    </div>
+                </section>
+            </div>
+        </anchor>
+
+        <!-- Section - 3 -->
+        <anchor id="spl">
+            <div class="sec-3_wrapper">
+                <section id="sec-3">
+                    <div class="text_sec-3">
+                        <h1>SIR Premiere League</h1>
+                        <p>Sir Premiere League is a sports conducting organization founded on late October 2020, to surpass quarantine and maintain body health of people by playing sports. The SPL mainly focuses on Cricket League and conducted 2 Seasons with 4 Team (Individual Player).</p>
+
+                        <a href="https://spl.sir.ovh/" class="btn">SPL Cricket Live <span style="margin-left: 5px">▶</span></a>
+                    </div>
+                    <div class="spl_logo"><img src="/assets/images/spl_logo.png" alt=""></div>
+                </section>
+            </div>
+        </anchor>
+    
     </main>
+
+    <!-- Footer -->
+    <div class="footer_wrapper">
+        <footer>
+            <div class="footer_text">
+                <h4>SIR &copy; 2021 <span class="sep">|</span><br> Developed and Maintained by <a href="https://victo.in">Victo</a></h4>
+            </div>
+            <div class="footer-links">
+                <a href="/privacy_policy" class="footer_link">Privacy Policy</a>
+                <a href="/notice-tandc" class="footer_link">Notice & TC</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function openNav() {
+          document.getElementById("myNav").style.height = "100%";
+        }
+        
+        function closeNav() {
+          document.getElementById("myNav").style.height = "0%";
+        }
+        </script>
 
 </body>
 </html>
